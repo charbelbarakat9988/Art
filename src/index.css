@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+	--container: 1200px;
+	--surface: #ffffff;
+	--text: #111827;
+	--muted: #6b7280;
+	--accent: #fb923c;
+	--accent-2: #f97316;
+	--gold: #f59e0b;
+	--radius: 12px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+
+/* NAVBAR */
+.navbar{background:var(--surface);border-bottom:1px solid #f3f4f6;position:sticky;top:0;z-index:30}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-weight:700;letter-spacing:0.4px;color:var(--text);text-decoration:none}
+.nav-links a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.cart-link{position:relative}
+
+
+/* HERO */
+.hero{padding:48px 0;background:linear-gradient(90deg, rgba(255,250,240,1) 0%, rgba(255,255,255,0) 100%)}
+.hero-inner{display:flex;gap:30px;align-items:center}
+.hero-title{font-size:44px;margin:0 0 10px}
+.hero-sub{margin:0 0 18px;color:var(--muted);max-width:520px}
+.hero-visual img{width:360px;height:auto;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.12)}
+
+
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:transparent;border:1px solid #e5e7eb;font-weight:700;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#f97316);color:#fff;border:0;box-shadow:0 8px 24px rgba(185,28,28,0.16)}
+.btn-ghost{background:transparent;border:1px solid #e6e7ea}
+
+
+/* GRID */
+.section{padding:36px 0}
+.section-title{font-size:22px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(1,1fr);gap:20px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+
+/* CARD */
+.card{background:var(--surface);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px rgba(17,24,39,0.06);transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(17,24,39,0.12)}
+.card-media img{width:100%;height:220px;object-fit:cover}
+.card-body{padding:14px}
+.card-title{font-size:16px;margin:0 0 6px}
+.card-price{color:var(--accent-2);font-weight:700;margin-bottom:10px}
+.card-actions{display:flex;gap:8px}
+
+
+/* FOOTER */
+.footer{padding:24px 0;margin-top:40px;text-align:center;color:var(--muted);font-size:14px}
+
+
+/* Holiday accents */
+.hero-title::after{content:"";display:block;width:64px;height:6px;background:linear-gradient(90deg,var(--gold),var(--accent));border-radius:4px;margin-top:12px}
+.brand{background:linear-gradient(90deg,var(--accent-2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+
+/* Small utilities */
+.text-muted{color:var(--muted)}
+
+
+/* Responsive tweaks */
+@media(max-width:900px){
+.hero-inner{flex-direction:column;text-align:center}
+.hero-visual img{width:100%;max-width:420px}
 }
+
+
+/* Micro-animation for christmas snow-dots (subtle)
+- lightweight, purely decorative
+*/
+@keyframes snowFloat{0%{transform:translateY(-6px)}50%{transform:translateY(6px)}100%{transform:translateY(-6px)}}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;pointer-events:none;opacity:.06;background-image:radial-gradient(circle at 10% 20%, #fff 0, transparent 20%),radial-gradient(circle at 80% 40%, #fff 0, transparent 18%);mix-blend-mode:overlay}
+
+
+/* Accessibility focus styles */
+a:focus,button:focus{outline:3px solid rgba(99,102,241,0.12);outline-offset:3px}

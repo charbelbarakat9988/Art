@@ -1,12 +1,10 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-// Bootstrap CSS (add bootstrap package to dependencies and install with `npm install bootstrap`)
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
