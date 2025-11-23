@@ -1,4 +1,66 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background-image: url('/public/backgroundart.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* optional: looks professional */
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #ff4c4c;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hero-slider {
+  height: 65vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.3);
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+
+.hero-title {
+  color: rgb(227, 219, 219);
+  font-size: 3rem;
+  text-align: center;
+    font-family: 'Arial Black', sans-serif;
+    
+}
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+
+  
 }
